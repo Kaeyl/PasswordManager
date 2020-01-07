@@ -92,7 +92,7 @@ def full_program():
             pass
 
 
-        print("[+] Generating your very strong password")
+        print("[+] Generating your password")
         divider = ""
         display_password = divider.join(user_pass)
         print(display_password)
