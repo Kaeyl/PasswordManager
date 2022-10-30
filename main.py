@@ -1,124 +1,92 @@
 import random
+import string
 
-weak_pass = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",]
-medium_pass = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
-strong_pass = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","_","-"]
-very_strong_pass = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","_","-",":",";"]
+user_strength_selection = 0
+user_length_selection = 0
 
-user_pass = []
-user_final_password = []
+class Password_options:
 
+    def weak_password(length):
+        weak_selection = string.ascii_lowercase
+        result_easy_string = ''.join(random.choice(weak_selection) for i in range(length))
+        print("Your weak password containing", length, "characters is:", result_easy_string)
 
-def full_program():
-    class ProgramGenerator():
-        while True:
-            try:
-                user_input = (int(input('''How strong do you want this password?
-                Please enter a value equal to the strength of this password 1 = weak
-                4 = very strong
-                ''')))
-                if user_input > 0 and user_input < 5:
-                    user_pass.clear()
-                    break
-            except ValueError:
-                print("Please enter a valid number!")
-                continue
-            else:
-                print("not valid")
+    def medium_password(length):
+        result_medium_string = ''.join(random.choice(string.ascii_letters)for i in range(length))
+        print("Your medium password containing", length, "characters is:", result_medium_string)
 
+    def strong_password(length):
+        strong_password = string.ascii_lowercase + string.digits + string.punctuation
+        result_hard_string = ''.join(random.choice(strong_password) for i in range(length))
+        print("Your strong password containing", length, "characters is:", result_hard_string)
 
-        print("You have submitted a valid number")
-        number_of_characters = (int(input("How many charaters do you want the password to be? ")))
+print("This is a simple password generator. Please select which complexity of password you would like to generate.\n"
+      "An easy password consists of only alphabetical lowercase letters, with a minimum length of 8 characters.\n"
+      "A medium password consists of lowercase and uppercase alphabetical characters with a minimum length of 12 characters.\n"
+      "A hard password consists of lowercase, uppercase and special characters with a minimum length of 14 characters. \n"
+      "You will be able to chose the length you want your password to be.\n\n")
 
-
-
-
-
-        def weak_password():
-            random_password = random.choice(weak_pass)
-            random_pass_generator = random.choice(weak_pass)
-            user_pass.append(random_pass_generator)
-        if user_input == 1:
-                for i in range(number_of_characters):
-                    weak_password()
-        else:
-            pass
-
-
-        divider = ""
-        display_weak_password = divider.join(user_pass)
-
-
-        def medium_password():
-            random_password = random.choice(medium_pass)
-            random_pass_generator = random.choice(medium_pass)
-            user_pass.append(random_pass_generator)
-        if user_input == 2:
-                for i in range(number_of_characters):
-                    medium_password()
-        else:
-            pass
-
-
-        divider = ""
-        display_medium_password = divider.join(user_pass)
-
-
-        def strong_password():
-            random_password = random.choice(strong_pass)
-            random_pass_generator = random.choice(strong_pass)
-            user_pass.append(random_pass_generator)
-        if user_input == 3:
-                for i in range(number_of_characters):
-                    strong_password()
-        else:
-            pass
-
-
-        divider = ""
-        display_strong_password = divider.join(user_pass)
-
-
-        def very_strong_password():
-            random_password = random.choice(very_strong_pass)
-            random_pass_generator = random.choice(very_strong_pass)
-            user_pass.append(random_pass_generator)
-
-        if user_input == 4:
-                for i in range(number_of_characters):
-                    very_strong_password()
-
-        else:
-            pass
-
-
-        print("[+] Generating your password")
-        divider = ""
-        display_password = divider.join(user_pass)
-        print(display_password)
-
-
-
-    ProgramGenerator()
-
-
-full_program()
-
-
-def continue_or_not():
+def get_user_strength(selection):
 
     while True:
         try:
-            user_decision = input("Would you like to generate more passwords? ")
-            user_decision = user_decision.upper()
-            if user_decision == "NO" or user_decision == "N":
-                break
-            if user_decision == "YES" or user_decision == "Y":
-                full_program()
-        except ValueError:
-            print("Please enter a valid number!")
+            user_input = int(input("please select from the following options: [1] Easy, [2] Medium, [3] Hard "))
+        except:
+            print("Input must be a number")
             continue
+        if user_input == 1 or user_input == 2 or user_input == 3:
+            selection = user_input
+            return selection
+        else:
+            print('no valid response was found. Please select from the following options: [1] Easy, [2] Medium, [3] Hard')
 
+def get_user_length_easy(selection):
+    while True:
+        try:
+            user_input = int(input("please select how long your password will be. For an easy password it must be greater then 8: "))
+        except:
+            continue
+        if user_input < 8:
+            print('The value must be 8 or more')
+        else:
+            selection = user_input
+            return selection
 
+def get_user_length_medium(selection):
+    while True:
+        try:
+            user_input = int(input("please select how long your password will be. For an easy password it must be greater then 12: "))
+        except:
+            continue
+        if user_input < 12:
+            print('The value must be 12 or more')
+        else:
+            selection = user_input
+            return selection
 
-continue_or_not()
+def get_user_length_hard(selection):
+    while True:
+        try:
+            user_input = int(input("please select how long your password will be. For an easy password it must be greater then 15: "))
+        except:
+            continue
+        if user_input < 15:
+            print('The value must be 15 or more')
+        else:
+            selection = user_input
+            return selection
+
+user_strength_selection = get_user_strength(user_strength_selection)
+
+if user_strength_selection == 1:
+    user_length_selection = get_user_length_easy(user_length_selection)
+    Password_options.weak_password(user_length_selection)
+
+if user_strength_selection == 2:
+    user_length_selection = get_user_length_medium(user_length_selection)
+    Password_options.medium_password(user_length_selection)
+
+if user_strength_selection == 3:
+    user_length_selection = get_user_length_hard(user_length_selection)
+    Password_options.strong_password(user_length_selection)
+
