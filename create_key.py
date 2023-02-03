@@ -28,7 +28,7 @@ class Encryption:
     # -----------------------------------------------------------------------------------------------------------------------------------------
     # The encrypt function takes the text file i.e. user_passwords.txt and uses thee key.key file to encrypt the data so that it is unreadable.
     # The second variable "encryption_key" is the key file i.e. key.key or private.key. This allows the program to use the correct key for
-    # the function.
+    # the function. (THIS SECTION WILL BE AMENDED SHORTLY)
     # -----------------------------------------------------------------------------------------------------------------------------------------
     def encrypt(text, encryption_key):
         # using the key
@@ -48,7 +48,7 @@ class Encryption:
 
     # -----------------------------------------------------------------------------------------------------------------------------------------
     # The decrypt function takes the same variables as the above function, however, it reverses the encryption so that the user can read the
-    # information.
+    # information. (THIS SECTION WILL BE AMENDED SHORTLY)
     # -----------------------------------------------------------------------------------------------------------------------------------------
     def decrypt(text, encryption_key):
         # using the key
