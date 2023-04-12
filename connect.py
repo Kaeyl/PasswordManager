@@ -7,7 +7,7 @@ def view():
             user="postgres",
             password="",
             host="localhost",
-            port='5432'
+            port=''
         )
         cursor_obj = con.cursor()
         cursor_obj.execute("SELECT * FROM password_table")
@@ -29,7 +29,7 @@ def add_password(password, email, username, url, app):
             user="postgres",
             password="",
             host="localhost",
-            port='5432'
+            port=''
         )
         cursor_obj = con.cursor()
         postgres_insert_query = """ INSERT INTO password_table (user_passwd, user_email, username, url, app_name) VALUES (%s,%s,%s,%s,%s)"""
@@ -52,7 +52,7 @@ def edit_password(position_id, password):
             user="postgres",
             password="",
             host="localhost",
-            port='5432'
+            port=''
         )
         cursor_obj = con.cursor()
         postgres_insert_query = """UPDATE password_table SET user_passwd = (%s) WHERE (%s) = p_id;"""
@@ -75,7 +75,7 @@ def edit_row(password, email, username, url, app, position_id):
             user="postgres",
             password="",
             host="localhost",
-            port='5432'
+            port=''
         )
         cursor_obj = con.cursor()
         postgres_insert_query = """UPDATE password_table SET user_passwd = (%s), user_email = (%s), username = (%s), url = (%s), app_name = (%s) WHERE (%s) = p_id;"""
@@ -98,7 +98,7 @@ def delete_password(user_selection, postgres_insert_query):
             user="postgres",
             password="",
             host="localhost",
-            port='5432'
+            port=''
         )
         cursor_obj = con.cursor()
         cursor_obj.execute(postgres_insert_query, user_selection)
