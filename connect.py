@@ -5,7 +5,7 @@ def view():
         con = psycopg2.connect(
             database="password_manager",
             user="postgres",
-            password="k@101121LE78142",
+            password="",
             host="localhost",
             port='5432'
         )
@@ -27,7 +27,7 @@ def add_password(password, email, username, url, app):
         con = psycopg2.connect(
             database="password_manager",
             user="postgres",
-            password="k@101121LE78142",
+            password="",
             host="localhost",
             port='5432'
         )
@@ -50,7 +50,7 @@ def edit_password(position_id, password):
         con = psycopg2.connect(
             database="password_manager",
             user="postgres",
-            password="k@101121LE78142",
+            password="",
             host="localhost",
             port='5432'
         )
@@ -73,7 +73,7 @@ def edit_row(password, email, username, url, app, position_id):
         con = psycopg2.connect(
             database="password_manager",
             user="postgres",
-            password="k@101121LE78142",
+            password="",
             host="localhost",
             port='5432'
         )
@@ -96,7 +96,7 @@ def delete_password(user_selection, postgres_insert_query):
         con = psycopg2.connect(
             database="password_manager",
             user="postgres",
-            password="k@101121LE78142",
+            password="",
             host="localhost",
             port='5432'
         )
