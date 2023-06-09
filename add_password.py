@@ -1,6 +1,6 @@
 import connect
 import generate_password
-# import random
+
 class Add:
     def __init__(self):
         user_selection = input("Would you like to manually apply a password 'm'  or randomly generate one? 'r' m/r ")
