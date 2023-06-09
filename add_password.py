@@ -24,4 +24,4 @@ class Add:
         url = input("What is the url for this service? ")
         app = input("What is the app for this service? ")
         connect.add_password(password, email, username, url, app)
-# Add()
+
