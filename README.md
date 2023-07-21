@@ -3,4 +3,3 @@ It uses Python and SQL (pgadmin).
 
 This program will allow the user to create, read, update and delete (CRUD) a password, username, email, website and app name.
 
-(Random password generation not yet implemented)
